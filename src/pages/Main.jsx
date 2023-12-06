@@ -8,9 +8,9 @@ const Main = () => {
   return (
     <div>
       <Featured imgUrl={imgUrl} />
-      <Row title="Popular" fetchUrl={requests.requestPopular} imgUrl={imgUrl} />
-      <Row title="Top Rated" fetchUrl={requests.requestTopRated} imgUrl={imgUrl} />
-      <Row title="Up Coming" fetchUrl={requests.requestUpcoming} imgUrl={imgUrl} />
+      <Row rowId="1" title="Popular" fetchUrl={requests.requestPopular} imgUrl={imgUrl} />
+      <Row rowId="2" title="Top Rated" fetchUrl={requests.requestTopRated} imgUrl={imgUrl} />
+      <Row rowId="3" title="Up Coming" fetchUrl={requests.requestUpcoming} imgUrl={imgUrl} />
     </div>
   );
 };

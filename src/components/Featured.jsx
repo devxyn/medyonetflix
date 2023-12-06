@@ -1,10 +1,10 @@
+/* eslint-disable react/prop-types */
 import { useLoaderData } from "react-router-dom";
 
-const Featured = () => {
+const Featured = ({ imgUrl }) => {
   const data = useLoaderData();
 
   const movie = data[Math.floor(Math.random() * data.length)];
-  const imgUrl = "https://www.themoviedb.org/t/p/";
 
   return (
     <div className="w-full h-[550px] text-white">

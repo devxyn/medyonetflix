@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 const Movies = ({ item, imgUrl }) => {
   return (
-    <div>
-      <div className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px]  cursor-pointer relative p-2">
+    <div className="">
+      <div className="w-[280px] md:w-[240px] lg:w-[280px] cursor-pointer relative p-2">
         <img
           className="w-full h-auto block object-cover"
           src={`${imgUrl}w500/${item?.backdrop_path}`}
@@ -15,6 +15,7 @@ const Movies = ({ item, imgUrl }) => {
           </div>
         </div>
       </div>
+      <h2 className="text-white text-center text-sm font-semibold md:hidden">{item.title}</h2>
     </div>
   );
 };

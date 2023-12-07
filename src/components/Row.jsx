@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Movies from "./Movies";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Row = ({ title, fetchUrl, imgUrl, rowId }) => {
   const [movies, setMovies] = useState([]);
@@ -44,7 +45,9 @@ const Row = ({ title, fetchUrl, imgUrl, rowId }) => {
           id={"slider" + rowId}
           className="flex w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide">
           {movies.map((item, id) => (
-            <Movies item={item} key={id} imgUrl={imgUrl} />
+            <Link to={`/movie/${item.id}`} key={id}>
+              <Movies item={item} imgUrl={imgUrl} />
+            </Link>
           ))}
         </div>
         <MdChevronRight

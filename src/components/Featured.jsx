@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 
 const Featured = ({ imgUrl, movie, height }) => {
+  const isMobile = window.innerWidth < 768;
+
   const cutString = (str, num) => {
     if (str.length > num) {
       return str.slice(0, num) + "...";
@@ -25,7 +27,9 @@ const Featured = ({ imgUrl, movie, height }) => {
             <button className="border text-white border-gray-300 py-2 px-5 ml-4">Watch Later</button>
           </div>
           <p className="text-gray-400 text-sm my-4">Released: {movie?.release_date}</p>
-          <p className="w-full md:max-w-[70%] lg:max-w-[50%] text-gray-200">{cutString(movie?.overview, 180)}</p>
+          <p className="w-full md:max-w-[70%] lg:max-w-[50%] text-gray-200">
+            {isMobile ? cutString(movie?.overview, 180) : movie.overview}
+          </p>
         </div>
       </div>
     </div>

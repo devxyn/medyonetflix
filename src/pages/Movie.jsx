@@ -1,11 +1,15 @@
 import { useLoaderData } from "react-router-dom";
+import Featured from "../components/Featured";
 
 const Movie = () => {
   const data = useLoaderData();
-  console.log(data);
+  const imgUrl = "https://www.themoviedb.org/t/p/";
+
   return (
-    <div className="text-white">
-      <h1>{data.title}</h1>
+    <div>
+      <div>
+        <Featured movie={data} imgUrl={imgUrl} height={"h-screen"} />
+      </div>
     </div>
   );
 };

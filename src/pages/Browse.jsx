@@ -20,7 +20,6 @@ const Browse = () => {
       const results = await axios.get(`${requests.movieListEndpoint}${genre}`);
       const data = results.data;
       setMovieList(data.results);
-      console.log(movieList);
     } catch (error) {
       throw new Error(`Error: ${error.message}`);
     }

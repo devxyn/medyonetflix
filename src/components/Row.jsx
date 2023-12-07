@@ -7,6 +7,7 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 const Row = ({ title, fetchUrl, imgUrl, rowId }) => {
   const [movies, setMovies] = useState([]);
 
+  // Fetches data from their own collection of movies
   useEffect(() => {
     try {
       const fetchData = async () => {

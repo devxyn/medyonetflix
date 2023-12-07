@@ -7,6 +7,7 @@ const Main = () => {
 
   return (
     <div>
+      {/* Featured Movie on the top*/}
       <Featured imgUrl={imgUrl} />
       <Row rowId="1" title="Popular" fetchUrl={requests.requestPopular} imgUrl={imgUrl} />
       <Row rowId="2" title="Top Rated" fetchUrl={requests.requestTopRated} imgUrl={imgUrl} />

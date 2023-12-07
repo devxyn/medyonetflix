@@ -29,7 +29,7 @@ const Featured = ({ imgUrl }) => {
             <button className="border text-white border-gray-300 py-2 px-5 ml-4">Watch Later</button>
           </div>
           <p className="text-gray-400 text-sm my-4">Released: {movie?.release_date}</p>
-          <p className="w-full md:max-w-[70%] lg:max-w-[50%] text-gray-200">{cutString(movie?.overview, 250)}</p>
+          <p className="w-full md:max-w-[70%] lg:max-w-[50%] text-gray-200">{cutString(movie?.overview, 180)}</p>
         </div>
       </div>
     </div>

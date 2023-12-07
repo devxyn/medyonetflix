@@ -1,10 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useLoaderData } from "react-router-dom";
 
-const Featured = ({ imgUrl }) => {
-  const data = useLoaderData();
-  const movie = data[Math.floor(Math.random() * data.length)];
-
+const Featured = ({ imgUrl, movie, height }) => {
   const cutString = (str, num) => {
     if (str.length > num) {
       return str.slice(0, num) + "...";
@@ -14,9 +10,9 @@ const Featured = ({ imgUrl }) => {
   };
 
   return (
-    <div className="w-full h-[550px] text-white">
+    <div className={`w-full ${height} text-white`}>
       <div className="w-full h-full">
-        <div className="absolute w-full h-[550px] bg-gradient-to-r from-black"></div>
+        <div className={`absolute w-full ${height} bg-gradient-to-r from-black`}></div>
         <img
           className="w-full h-full object-cover"
           src={`${imgUrl}original/${movie?.backdrop_path}`}

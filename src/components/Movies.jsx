@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 const Movies = ({ item, imgUrl }) => {
   return (
-    <div>
-      <div className="w-[280px] md:w-[240px] lg:w-[280px] cursor-pointer relative p-2">
+    <div className="mb-4">
+      <div className="w-[240px] cursor-pointer relative p-2">
         <img
           className="w-full h-auto block object-cover"
-          src={`${imgUrl}w500/${item?.backdrop_path}`}
+          src={`${imgUrl}original/${item?.poster_path}`}
           alt={item?.title}
         />
         <div className="absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 text-white">
@@ -14,8 +14,8 @@ const Movies = ({ item, imgUrl }) => {
             <p className="text-xs">{item?.release_date.slice(0, 4)}</p>
           </div>
         </div>
+        <h2 className="w-full text-white text-center truncate text-sm font-semibold mt-2">{item.title}</h2>
       </div>
-      <h2 className="text-white text-center text-sm font-semibold">{item.title}</h2>
     </div>
   );
 };

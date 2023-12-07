@@ -34,7 +34,7 @@ const Row = ({ title, fetchUrl, imgUrl, rowId }) => {
 
   return (
     <>
-      <h2 className="text-white font-bold md:text-xl p-4">{title}</h2>
+      <h2 className="text-white font-bold text-lg md:text-xl p-4">{title}</h2>
       <div className="relative flex items-center group">
         <MdChevronLeft
           className="bg-white left-2 rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block"
@@ -43,7 +43,7 @@ const Row = ({ title, fetchUrl, imgUrl, rowId }) => {
         />
         <div
           id={"slider" + rowId}
-          className="flex w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide">
+          className="flex w-full h-full overflow-x-scroll gap-4 px-4 whitespace-nowrap scroll-smooth scrollbar-hide">
           {movies.map((item, id) => (
             <Link to={`/movie/${item.id}`} key={id}>
               <Movies item={item} imgUrl={imgUrl} />

@@ -20,6 +20,7 @@ const Browse = () => {
       const results = await axios.get(`${requests.movieListEndpoint}${genre}`);
       const data = results.data;
       setMovieList(data.results);
+      console.log(movieList);
     } catch (error) {
       throw new Error(`Error: ${error.message}`);
     }
@@ -29,10 +30,8 @@ const Browse = () => {
     loadGenre();
   }, [genre]);
 
-  console.log(movieList);
-
   return (
-    <div className="text-white h-screen p-4 pt-20">
+    <div className="text-white h-screen p-5 pt-20">
       <div>
         <h2 className="text-2xl">Browse Movies</h2>
         <label htmlFor="genre">Genre: </label>

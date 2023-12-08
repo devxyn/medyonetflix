@@ -20,6 +20,19 @@ const Browse = () => {
   //   setGenre(e.target.value);
   // };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      loadSearch();
+    }
+  };
+
+  const handleSearchQuery = (e) => {
+    if (search === "") {
+      setSearchData();
+    }
+    setSearch(e.target.value);
+  };
+
   const loadGenre = async () => {
     try {
       const results = await axios.get(`${requests.movieListEndpoint}${genre}`);
@@ -30,7 +43,7 @@ const Browse = () => {
     }
   };
 
-  const hanldeSearch = async () => {
+  const loadSearch = async () => {
     try {
       const results = await axios.get(`https://api.themoviedb.org/3/search/movie?query=${search}&api_key=${key}`);
       const data = results.data;
@@ -46,18 +59,19 @@ const Browse = () => {
 
   return (
     <div className="text-white h-screen p-8 pt-24">
-      <div className="flex justify-between items-center mb-10">
+      <div className="flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center mb-10">
         <h2 className="text-3xl md:text-5xl font-bold">Browse Movies</h2>
         <div className="flex flex-row justify-center items-center relative">
           <input
-            className="text-white px-6 py-2 rounded bg-transparent border border-white w-full relative"
+            className="text-white px-6 py-2 rounded bg-transparent active:bg-transparent border border-white w-full relative"
             type="text"
             id="search"
             name="search"
             placeholder="Search movies"
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={handleSearchQuery}
+            onKeyDown={handleKeyPress}
           />
-          <CiSearch className="absolute right-2 cursor-pointer" onClick={hanldeSearch} size={24} />
+          <CiSearch className="absolute right-2 cursor-pointer" onClick={loadSearch} size={24} />
         </div>
         {/* <div className="flex justify-between p-8">
           <div>

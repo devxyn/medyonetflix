@@ -5,6 +5,7 @@ import { IoMenu } from "react-icons/io5";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useState } from "react";
 import { UserAuth } from "../context/AuthContext";
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -31,7 +32,7 @@ const Navbar = () => {
         open ? "bg-black/80 transition-all ease-in duration-200" : "transition-all ease-out duration-200"
       } md:bg-transparent z-[99]`}>
       <Link to="/">
-        <h1 className="text-red-600 text-4xl font-bold">MEDYO NETFLIX</h1>
+        <img className="h-14" src={logo} alt="logo" />
       </Link>
       <div className="absolute right-4 top-6 text-white cursor-pointer md:hidden" onClick={toggleOpen}>
         {open ? <IoClose size={24} /> : <IoMenu size={24} />}

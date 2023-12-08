@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
+import noImg from "../assets/no-img.jpg";
+
 const Movies = ({ item, imgUrl }) => {
   return (
     <div className="mb-4">
       <div className="w-[240px] cursor-pointer relative p-2">
         <img
           className="w-full h-auto block object-cover"
-          src={`${imgUrl}original/${item?.poster_path}`}
+          src={item?.poster_path ? `${imgUrl}original/${item?.poster_path}` : noImg}
           alt={item?.title}
         />
         <div className="absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 text-white">

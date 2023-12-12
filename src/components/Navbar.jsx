@@ -9,6 +9,7 @@ import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const { user, logOut } = UserAuth();
   const navigate = useNavigate();
 
@@ -21,7 +22,13 @@ const Navbar = () => {
     }
   };
 
-  // console.log(user.email);
+  const handleToggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const handleMouseLeave = () => {
+    setShowDropdown(false);
+  };
 
   const toggleOpen = () => {
     setOpen(!open);
@@ -45,13 +52,21 @@ const Navbar = () => {
           </span>
         </Link>
         {user?.email ? (
-          <div className="flex flex-col gap-5 md:inline-block">
-            <Link to="/account">
-              <button className="py-2 px-5 text-white ml-2 rounded">Account</button>
-            </Link>
-            <button onClick={handleLogOut} className="py-2 px-5 text-white ml-2 rounded bg-red-600">
-              Logout
+          <div onMouseLeave={handleMouseLeave} className="flex flex-col gap-5 md:inline-block relative">
+            <button onClick={handleToggleDropdown} className="py-2 px-5 text-white ml-2 rounded focus:outline-none">
+              Account
             </button>
+
+            {showDropdown && (
+              <div className="absolute top-full left-2 bg-white border border-gray-200 py-2 px-5 rounded">
+                <Link to="/account" className="block text-gray-800 hover:text-gray-600 py-1">
+                  My List
+                </Link>
+                <button onClick={handleLogOut} className="block text-gray-800 hover:text-gray-600 py-1">
+                  Logout
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <div className="flex flex-col gap-5 md:inline-block">

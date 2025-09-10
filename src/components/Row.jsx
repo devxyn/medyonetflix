@@ -43,7 +43,7 @@ const Row = ({ title, fetchUrl, imgUrl, rowId }) => {
         />
         <div
           id={"slider" + rowId}
-          className="flex w-full h-full overflow-x-scroll gap-4 px-4 whitespace-nowrap scroll-smooth scrollbar-hide">
+          className="flex w-full h-full overflow-x-scroll gap-4 px-4 whitespace-nowrap scroll-smooth no-scrollbar">
           {movies.map((item, id) => (
             <Link to={`/movie/${item.id}`} key={id}>
               <Movies item={item} imgUrl={imgUrl} />
